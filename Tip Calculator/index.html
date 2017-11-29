@@ -14,7 +14,7 @@
     <div class="container pagination-centered">
       <div class="row">
         <div class="col">
-          <h1 class="text-center mb-5">This is a demo.</h1>
+          <h1 class="text-center mb-5">The Legendary Tip Calculator</h1>
         </div>
       </div>
       <div class="row">
@@ -28,23 +28,35 @@
                 <input id="percent-tip-field" type="text" class="form-control" placeholder="Percent Tip">
               </div>
             </div>
-            <div class="row">
-              <div class="col-3"></div>
-              <div class="col-6">
-                <button id="submit-button" type="submit" class="btn btn-primary btn-lg btn-block mt-4">Submit</button>
-              </div>
-              <div class="col-3"></div>
-            </div>
           </form>
+
         </div>
       </div>
+
+      <div class="row">
+        <div class="col">
+          <button id="calculate-button" class="btn btn-primary btn-lg btn-block mt-4">Calculate</button>
+        </div>
+      </div>
+
+      <div id="results-row" class="row mt-3 p-4">
+        <div class="col">
+          <h2>Tip: $<span id="tip-result"></span></h2>
+        </div>
+        <div class="col">
+          <h2>Total: $<span id="total-result"></span></h2>
+
+        </div>
+      </div>
+
     </div>
 
 
 
     <!-- JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
 
