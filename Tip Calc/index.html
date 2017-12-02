@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <title>Tip Calculator</title>
+    <title>Your Prject Name Here</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -9,57 +9,36 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
     <!-- Custom styles -->
     <link rel="stylesheet" href="styles.css">
-
-    <!-- Uncomment to see rows and columns color coded -->
-    <!-- <link rel="stylesheet" href="color-code.css"> -->
-
   </head>
-  <body bc="gray">
+  <body>
 
-    <!-- So many <div> tags! -->
-    <!-- The container one contains ALLLLLLLL -->
-    <div class="container pagination-centered p-4" bc="yellow">
-
-      <!-- Try to imagine the row and column system-->
+    <!-- The container contains ALLLLLLLL -->
+    <div class="container">
       <div class="row">
         <div class="col">
-          <h1 class="text-center mb-5">The Legendary Tip Calculator</h1>
+          <h1>Hello!</h1>
         </div>
       </div>
-      <div class="row p-4">
-        <div class="col">   
+      <div class="row">
+        <div class="col">
           <form>
-            <div class="row p-3">
-              <div class="col">
-                <input id="bill-amount-field" type="text" class="form-control" placeholder="Bill Amount($)">
+            <div class="row">
+              <div class="col-6">
+                <div class="form-group">
+                  <label for="bill-field">Bill Amount ($)</label>
+                  <input class="form-control" id="bill-field" placeholder="Enter bill">
+                </div>
               </div>
-              <div class="col">
-                <input id="percent-tip-field" type="text" class="form-control" placeholder="Percent Tip">
+              <div class="col-6">
+                <div class="form-group">
+                  <label for="tip-field">Percent Tip</label>
+                  <input class="form-control" id="tip-field" placeholder="Enter tip">
+                </div>
               </div>
             </div>
           </form>
-
         </div>
       </div>
-
-      <div class="row p-4">
-        <div class="col">
-          <button id="calculate-button" class="btn btn-primary btn-lg btn-block mt-4">Calculate</button>
-        </div>
-      </div>
-
-
-      <!-- It's common practice to use the <span> tags in the way demonstrated below when you want to have one particular part of a block of text change while the rest stays constant. -->
-      <div id="results-row" class="row mt-3 p-4">
-        <div class="col">
-          <h2>Tip: $<span id="tip-result"></span></h2>
-        </div>
-        <div class="col">
-          <h2>Total: $<span id="total-result"></span></h2>
-<!--  -->
-        </div>
-      </div>
-
     </div>
 
 
@@ -67,7 +46,7 @@
     <!-- JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <!--     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
- -->    
+ -->
     <script
       src="https://code.jquery.com/jquery-3.2.1.min.js"
       integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
