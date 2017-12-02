@@ -11,30 +11,32 @@
     <link rel="stylesheet" href="styles.css">
 
     <!-- Uncomment to see rows and columns color coded -->
-    <!-- <link rel="stylesheet" href="color-code.css"> -->
-
+<!--     <link rel="stylesheet" href="color-code.css">
+ -->
   </head>
   <body bc="gray">
 
     <!-- So many <div> tags! -->
     <!-- The container one contains ALLLLLLLL -->
-    <div class="container pagination-centered p-4" bc="yellow">
+    <div class="container pagination-centered p-3" bc="yellow">
 
       <!-- Try to imagine the row and column system-->
-      <div class="row">
+      <div class="row p-3">
         <div class="col">
           <h1 class="text-center mb-5">The Legendary Tip Calculator</h1>
         </div>
       </div>
-      <div class="row p-4">
+      <div class="row p-3">
         <div class="col">   
           <form>
-            <div class="row p-3">
-              <div class="col">
-                <input id="bill-amount-field" type="text" class="form-control" placeholder="Bill Amount($)">
+            <div class="row">
+              <div class="col form-group">
+                <label for="bill-amount-field">Bill Amount ($)</label>
+                <input id="bill-amount-field" type="text" class="form-control" placeholder="$$$">
               </div>
-              <div class="col">
-                <input id="percent-tip-field" type="text" class="form-control" placeholder="Percent Tip">
+              <div class="col form-group">
+                <label for="percent-tip-field">Percent Tip</label>
+                <input id="percent-tip-field" type="text" class="form-control" placeholder="%">
               </div>
             </div>
           </form>
@@ -42,7 +44,7 @@
         </div>
       </div>
 
-      <div class="row p-4">
+      <div class="row p-3">
         <div class="col">
           <button id="calculate-button" class="btn btn-primary btn-lg btn-block mt-4">Calculate</button>
         </div>
