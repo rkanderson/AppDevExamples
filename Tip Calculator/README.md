@@ -5,7 +5,7 @@ This short tutorial should walk you through the process of creating a simple web
 ------------
 
 
-##Setting Up
+## Setting Up
 
 You must have a browser (Chrome or Firefox preferred) and a text editor (like Atom) installed. Create a folder for your project's files named "Tip Calculator". Finally, download the AppDevExamples repository [here](https://github.com/rkanderson/AppDevExamples/archive/master.zip) and place the contents of **Mini Project Template** in your folder.
 
@@ -19,9 +19,9 @@ For now, testing your app is as simple as opening up index.html in your browser 
 ----------
 
 
-##Building the User Interface
+## Building the User Interface
 
-###Preview
+### Preview
 
 There are several possible patterns for development. Some prefer to construct a minimal UI and jump straight into programming. We, however, will begin by creating most of what we need in terms of UI.
 The following image represents our goal:
@@ -49,9 +49,10 @@ In index.html, change the h1 tag to read "Tip Calculator" instead of "Hello Worl
   
 And you should see the following upon refreshing your browser:	
 ![screenshot](README_assets/3_tip_calc_center.png)
+Now time to create the more important ui pieces...
 
-###Text Fields
+### Text Fields
 
-Bootstrap has ...
+Bootstrap
 
 
