@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+
+<html>
+<head></head>
+<body>
+<script>
+
+// Give a friendly greeting!
+const name = prompt('Hi there! What\'s your name?');
+alert('Hello, '+name+'! Welcome to a choose-your-own-adventure story!');
+
+// This is a crazy object that contains the structure for the entire
+// adventure story. Everything is divided into rooms. Each room has a description
+// and a set of choices.
+const rooms = {
+  'start': {
+    description: "You're standing in front of a massive HQ building of a corporation"
+                +" called LaliDabs, recently accused of harboring a giant cyborg harambe with the capacity to enslave the human race."
+                +"As an investigative journalist, your job is to look into this conspiracy.",
+    choices: {
+      'Enter through the front doors': 'lobby',
+      'Attempt to climb into an open window': 'dark-office'
+    }
+  },
+  'lobby': {
+    description: "You stand in the lobby. Security cameras are everywhere."
+    +"Weird how you got in so easily. You see an open elevator.",
+    choices: {
+      "Get in the elevator": "ceo-office",
+      "Wait a little longer": "shassil"
+    }
+  },
+  'dark-office': {
+    description: "You are currently stadning in a dark office. You're obviously"
+               +" not supposed to be in here. Amidst the darkness, you see what"
+               +" looks like a giant fridge that's somehow glowing. You also see the door"+
+               " cracked open a little letting in light from the hallway.",
+    choices: {
+      'Open the fridge': 'unlimited-pmt',
+      'Step into the hallway': 'shassil'
+    }
+  },
+  'ceo-office': {
+    description: "You enter the elevator, which closes automatically and takes you up many floors. Creepy."
+                +" The doors open and standing before you is the CEO of LaliDabs himself: Baniel Dessonov. "
+                +" 'Hello, "+name+"! I've been expecting you. Please come into my office.' he says with a sinister grin. "
+                +" 'I'll give you some free PMT.' He pulls you into his office and hands you a cup of the fabled beverage."
+                +" 'Now, would you like to hear about what exciting new things are happening at LaliDabs?' he asks.",
+    choices: {
+      'Take the PMT and run': 'free-pmt',
+      'Stay to listen': 'human-vr'
+    }
+  },
+
+  'free-pmt': {
+    win: true,
+    description: "You run like hell. You didn't find out anything, but you got free PMT. That's pretty good.",
+  },
+
+  'human-vr': {
+    death: true,
+    description: "You listen intently as you sip your PMT. 'For all of history, technology "+
+    "has been something we must carry with us, whether it be in our homes, our pockets, or on our wrists. But LadiDabs "
+    +"is soon to release a new ground-breaking product: HUMAN-VR. Allowing anyone to enjoy the pleasures and conveniences of "+
+    "virtual reality, but without having to carry or wear anything. It's all in your head', he says grinning ear to ear. "
+    +"'The problem is, however, nobody wants to volunteer to become a test-subject. I don't blame 'em. Such risky business. Welp, fun fact, you've been a test-subject this whole time. You're in VR, and here's what we need you to do:' Everything suddenly darkens. You see a large screen flash before you. 'We need you to user-test our apps before they are put on the app store. You can't leave though, you're in VR.' It looks like you'll spend the rest of your life testing the new version of Pen by LaliDabs.",
+  },
+
+  'unlimited-pmt': {
+    win: true,
+    description: "OMG you found LadiDabs secret stock of PMT. This is valuable stuff. You're going to be rich!"
+  },
+
+  'shassil': {
+    description: "You are intercepted by a man with a long beard. 'Hi, I'm Shassil Bama. I'm in charge of LadiDabs PR,' he says. 'I've been instructed to show you LadiDabs latest project.' She shows you to a hidden room. It is then that you see a giant cybernetic harambe in what appears to be in a hybernating state. 'No photography at any time please,' says Shassil staring at your camera.",
+    choices: {
+      "Take a photo RIGHT NOW": "hulk",
+      "Continue to listen": "zero-robotics"
+    }
+  },
+
+  "hulk": {
+    death: true,
+    description: "'I SAID NO PHOTOGRAPHY' Shassil roars with blistering fury while appearing to become greener and larger. He transforms into the incredible hulk and eats you."
+  },
+
+  "zero-robotics": {
+    win: true,
+    description: "Shassil is pleased you would like to hear more. 'You may be wondering if what you're seeing here is real,' he says. 'It must be mentioned that this robot is part of our zero robotics initiative. That means it's robot which is 0% robot meaning it doesn't exist.' Well that's reassuring. It looks like humanity's safe. For now."
+  }
+
+};
+
+
+// Now here's a function that can be reused over and over to load any room
+function loadRoom(name) {
+  while(true) {
+    const room = rooms[name]; //Fetch our room object
+    if(room.death === true) {
+      alert(room.description+'\nYou are dead :(\nPress enter to play again.');
+      loadRoom('start');
+    } else if(room.win === true){
+      alert(room.description+'\nYou win!\nPress enter to play again.');
+      loadRoom('start');
+    } else {
+      // We need to construct the text that gets displayed to the user
+      var displayText = room.description+"\nDo you?\n" //\n means enter (make new line)
+      var counter = 0;
+      const letters = ['a', 'b', 'c', 'd', 'e'];
+      for(var choice in room.choices) {
+        displayText += letters[counter]+') '+choice+'\n';
+        counter+=1;
+      }
+      const response = prompt(displayText);
+      const letterPosition = letters.indexOf(response);
+      if(letterPosition !== -1 && letterPosition <= counter - 1) {
+        const nextRoomName = Object.values(room.choices)[letterPosition];
+        console.log('loading room '+nextRoomName);
+        loadRoom(nextRoomName);
+      } else {
+        alert("Please type in the letter of one of the options.");
+      }
+    }
+  }
+}
+
+
+//Finally we start the game!
+loadRoom('start');
+
+
+</script>
+</body>
+</html>
