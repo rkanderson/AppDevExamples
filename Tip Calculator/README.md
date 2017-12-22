@@ -26,7 +26,7 @@ For now, testing your app is as simple as opening up index.html in your browser 
 There are several possible patterns for development. Some prefer to construct a minimal UI and jump straight into programming. We, however, will begin by creating most of what we need in terms of UI.
 The following image represents our goal:
 ![final goal screenshot](README_assets/2_final_goal_screen.png)
-### Centering rule
+### Centering Rule
 The first thing you may notice is that everything is centered both horizontally and vertically. There is a simple css trick to establish this centering rule for the entire page. Add the following code to styles.css
 
 ```css
@@ -43,7 +43,7 @@ body {
 Refresh your page, and you'll already see the "Hello World" h1 tag centered vertically. 
 In index.html, change the h1 tag to read "Tip Calculator" instead of "Hello World" and give it a text-center class. The h1 should look like this:
 
-```hmtl
+```html
 <h1 class="text-center">Tip Calculator</h1>
 ```
   
@@ -53,6 +53,58 @@ Now time to create the more important ui pieces...
 
 ### Text Fields
 
-Bootstrap
+Bootstrap has a nice pre-built system for text fields as well as many other input components like drop down menus, radio buttons, checkboxes, and file choosers. When you develop using any library, it's impossible to know how to do everything straight off your head. That's why you can use the power of the internet to quickly learn what you want. Simply googling **"[_Library Name_] how to make/use ___________"** almost always gives you what you need (often a question posted on Stack Overflow). In our case, we might google "Bootstrap how to make text fields," but what's even better is to have Bootstrap's official documentation handy-- because googling everything is sometimes tedious. Bootstrap's component documentation can be found [here](http://v4-alpha.getbootstrap.com/components/buttons/)
+
+Recall that bootstrap works by structuring your webpage into rows with independent numbers of columns. Our h1 tag is currently in its own row, so we need to make a new one for the text fields. Then within that row, we need two column divs (div with class="col"), one for each text field. Modify the code within the container div so it looks like this:
+
+```html
+  <div class="container">
+      <div class="row">
+        <div class="col">
+          <h1 class="text-center">Tip Calculator</h1>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          I'm the first column!
+        </div>
+        <div class="col">
+          I'm the 2nd column!
+        </div>
+      </div>
+    </div>
+```
+The following screenshot has been color coded to show the column structure. The container is yellow, the two new columns are red and green. Our h1 has been given no background color. Notice how the two columns only appear the second row (where we added the two column divs)
+![screenshot](README_assets/4_col.png)
+Try changing the width of your window. Notice how the content adapts? Bootstrap is good at that kind of thing.
+Now we need to actually add the code for the text fields. This is where we can use that documentation. Documentation on text fields can be found in the "Forms" section on the Bootstrap components page (here's the [link](http://v4-alpha.getbootstrap.com/components/buttons/) again). 
+
+The Documentation indicates that all bootstrap form inputs must have the class "form-control" be nested within a div with a class of "form-group". Our 2nd row surrounding div is a good spot to place our "form-control" class. As for the textual inputs, it's a matter of copying and pasting from the documentation!
+Modify your code to look like this:
+
+```html
+  <div class="container">
+      <div class="row">
+        <div class="col">
+          <h1 class="text-center">Tip Calculator</h1>
+        </div>
+      </div>
+      <div class="row form-group"> <!--We added the form-group class here!-->
+        <div class="col">
+          <!--This is the first column!-->
+          <label for="bill-field">Bill</label> <!--This label tells the user what the text field is for and has a "for" attribute with the id of the text-field. -->
+          <input id="bill-field" class="form-control" type="text"> <!--This input has the form-control class. That tells bootstrap to style it!-->
+        </div>
+        <div class="col">
+          <!--This is the second column-->
+          <label for="percent-tip-field">Percent Tip</label>
+          <input id="percent-tip-field" class="form-control" type="text">
+        </div>
+      </div>
+    </div>
+```
+
+> The input tag is a standard HTML5 element. For more documentation specifically on the input tag, visit a site such as W3Schools.
+
 
 
