@@ -120,14 +120,45 @@ The documentation tells us that we need to use an HTML button tag and give it th
 And now we need to add that to a new row with just a single column (for now). Do you know how? See if you can do it on your own. Or just copy the code below, you dirty cheater.
 ```html
 <div class="row"> <!--This entire row div goes just below the closing </div> tag for the row div that contained both text-fields-->
-	<div class="col">
-		<button id="calculate-button" class="btn btn-primary btn-lg btn-block">Calculate!</button>
-	</div>
+  <div class="col"> <!-- Just a single column for our lonely button -->
+    <button id="calculate-button" class="btn btn-primary btn-lg btn-block">Calculate!</button>
+  </div>
 </div>
 ```
 
 Your refreshed page should look like the following image. The new button has been given its own snazzy purple box for color coding purposes.
 ![screenshot](README_assets/6_btn.png)
+
+> Be sure you've put the next row div in the right spot, that is outside and just after the previous row div. The code should have this structure (we currently have a total of three row divs)
+
+```html
+<div class="container">
+
+  <div class="row"> <!--First row!-->
+  	<div class="col">
+  		... <!--h1 tag in all it's glory-->
+  	</div>
+  </div>
+
+
+  <div class="row"> <!--2nd row!-->
+  	<div class="col">
+  		... <!--Bill text field-->
+  	</div>
+  	<div class="col">
+  		... <!--Percent tip text field-->
+  	</div>
+  </div>
+
+
+  <div class="row"> <!--3rd row!-->
+  	<div class="col">
+  		... <!--THE BUTTON WOOOOOOOHOOOOO-->
+  	</div>
+  </div>
+
+</div>
+```
 
 
 
