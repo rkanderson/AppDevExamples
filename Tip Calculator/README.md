@@ -106,5 +106,28 @@ Modify your code to look like this:
 
 > The input tag is a standard HTML5 element. For more documentation specifically on the input tag, visit a site such as W3Schools.
 
+Your refreshed page should look something like this: (without the colors)
+![screenshot](README_assets/5_text-field.png)
+
+### Button
+Now we need a big button that says calculate! Buttons are the first thing mentioned in the Bootstrap components documentation! Check it out!
+The documentation tells us that we need to use an HTML button tag and give it the class "btn" to tell Bootstrap that it should be styled. In addition, we can provide a second class that tells bootstrap just exactly what pre-defined style category the button fits into (primary, secondary, info, warning, etc). We should use class "btn-primary" since it's our most important (and only!) button on screen. Finally, we have several classes at our disposal that let us determine the size and shape of the button. "btn-lg" makes the button nice and big, and the "btn-block" class makes the button horizontally span its entire parent, which is closest to what we want. Our final button tag looks like this:
+
+```html
+<button id="calculate-button" class="btn btn-primary btn-lg btn-block">Calculate!</button>
+```
+
+And now we need to add that to a new row with just a single column (for now). Do you know how? See if you can do it on your own. Or just copy the code below, you dirty cheater.
+```html
+<div class="row"> <!--This entire row div goes just below the closing </div> tag for the row div that contained both text-fields-->
+	<div class="col">
+		<button id="calculate-button" class="btn btn-primary btn-lg btn-block">Calculate!</button>
+	</div>
+</div>
+```
+
+Your refreshed page should look like the following image. The new button has been given its own snazzy purple box for color coding purposes.
+![screenshot](README_assets/6_btn.png)
+
 
 
