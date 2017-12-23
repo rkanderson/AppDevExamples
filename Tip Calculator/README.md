@@ -195,12 +195,12 @@ Like any big project, the best way to handle a big coding task is to break it do
 ### Detecting the Button Press
 This part's pretty important. We need to create code that fires off the moment our button is clicked. Thankfully, jQuery makes this immensely easy. Write the following inside the $(document).ready(function(){.....}) in main.js. This should be where it says "//let the magic begin!""
 ```javascript
-	$("#calculate-button").click(function(){ //<--#calculate-button is an id selector for the id we gave our button.
-	 										// Be certain that the id you type is the exact same id you gave for the button in index.html.
+  $("#calculate-button").click(function(){ //<--#calculate-button is an id selector for the id we gave our button.
+                                          // Be certain that the id you type is the exact same id you gave for the button in index.html.
 
-	  // This prints a message in the console. Helpful for testing or debugging!
-      console.log('Button pressed!');
-    });
+    // This prints a message in the console. Helpful for testing or debugging!
+	console.log('Button pressed!');
+  });
 ```
 
 Reload your page and try clicking your button. Nothing happens, right? WRONG! Not if you check your browser's super secret developer console. The way you enable the console varies from browser to browser. For Chrome, go to View -> Developer -> Javascript Console. With the console open, you should see the console.log message from the code appear every time you click the button. ___The console is your most useful tool for writing javascript!!!___
@@ -210,6 +210,21 @@ Great! Our button works!
 ![screen](README_assets/9_cache.png)
 
 ### Reading the Text Fields
+We eventually want to do some calculations with the numbers the user enters, but to do that, we first need to grab those numbers from our code! jQuery to the rescue! We can create a jQuery object out of both text fields by using #id-selectors and then grab exactly what is currently typed into the text field (its "value") by calling the .val() function. Modify the code to look like this:
+```javascript
+$(document).ready(function{
+  $("#calculate-button").click(function(){ //<--#calculate-button is an id selector for the id we gave our button.
+                                          // Be certain that the id you type is the exact same id you gave for the button in index.html.
+
+    // This prints a message in the console. Helpful for testing or debugging!
+	console.log('Button pressed!');
+	const bill = $('#bill-field').val();
+	const percentTip = $('#percent-tip-field').val();
+	console.log('Bill: '+bill+', Percent Tip: '+percentTip);
+  });
+});
+```
+And again, make sure the #id-selector you use matches the id's of the text fields.
 
 ### Making the calculations
 
