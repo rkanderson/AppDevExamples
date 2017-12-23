@@ -1,6 +1,6 @@
 # Welcome to the Tip Calculator tutorial!
 
-This short tutorial should walk you through the process of creating a simple web application.
+This short tutorial should walk you through the process of creating a simple web application-- specifically a calculator that tells you how much you need to pay at a restaurant.
 
 ------------
 
@@ -136,7 +136,7 @@ Your refreshed page should look like the following image. The new button has bee
 
   <div class="row"> <!--First row!-->
   	<div class="col">
-  		... <!--h1 tag in all it's glory-->
+  		... <!--h1 tag in all its glory-->
   	</div>
   </div>
 
@@ -153,12 +153,68 @@ Your refreshed page should look like the following image. The new button has bee
 
   <div class="row"> <!--3rd row!-->
   	<div class="col">
-  		... <!--THE BUTTON WOOOOOOOHOOOOO-->
+  		... <!--Our Button! WOOOOOOOHOOOOO-->
   	</div>
   </div>
 
 </div>
 ```
 
+### Results Display
+Now we need an area to display the results after clicking the "Calculate Button" -- the **amount of tip** in USD and the **total** we owe. Without a doubt, we'll make a new row. Within the new row, we can create a display in a variety of ways, but a simple way is to split our two numbers into 2 columns. You may be able to create this part on your own, but please just copy the HTML below, because there's some tag structure that will come in handy once we build the logic of the app using javascript.
+
+```html
+<div class="container">
+
+  <!--Everything we've done so far goes right here!-->
+  ...
+
+  <div id="results-display" class="row"> <!--Our new row for the results display!-->
+    <div class="col">
+      <h2>Tip: $<span id="tip-result">XX</span></h2>
+    </div>
+    <div class="col">
+      <h2>Total: $<span id="total-result">XX</span></h2>
+    </div>
+  </div>
+
+
+</div>
+```
+And you should end up with this. The new row for the results display has been color coded grey.
+![screenshot](README_assets/7_results-display.png)
+
+--------
+
+## Building the Logic with Javascript
+Ok so up until now we've just been stitching together a lifeless HTML corpse. Time to become Dr. Frankenstein and bring it to life-- with javascript.
+
+### Divide and Conquer!
+Like any big project, the best way to handle a big coding task is to break it down into tiny pieces and tackle each one individually. Often this will involve testing these pieces seperately from the entire app.
+
+### Detecting the Button Press
+This part's pretty important. We need to create code that fires off the moment our button is clicked. Thankfully, jQuery makes this immensely easy. Write the following inside the $(document).ready(function(){.....}) in main.js. This should be where it says "//let the magic begin!""
+```javascript
+	$("#calculate-button").click(function(){ //<--#calculate-button is an id selector for the id we gave our button.
+	 										// Be certain that the id you type is the exact same id you gave for the button in index.html.
+
+	  // This prints a message in the console. Helpful for testing or debugging!
+      console.log('Button pressed!');
+    });
+```
+
+Reload your page and try clicking your button. Nothing happens, right? WRONG! Not if you check your browser's super secret developer console. The way you enable the console varies from browser to browser. For Chrome, go to View -> Developer -> Javascript Console. With the console open, you should see the console.log message from the code appear every time you click the button. ___The console is your most useful tool for writing javascript!!!___
+![screenshot](README_assets/8_console.png)
+Great! Our button works!
+> **Note**: if you're experiencing problems with your code not updating, you probably need to disable caching need to disable cache. It should be in a little checkbox in the Network section of the developer panel.
+![screen](README_assets/9_cache.png)
+
+### Reading the Text Fields
+
+### Making the calculations
+
+### Updating the Results Display
+
+### Finishing Touches
 
 
