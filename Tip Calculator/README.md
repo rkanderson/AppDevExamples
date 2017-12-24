@@ -1,6 +1,6 @@
 # Welcome to the Tip Calculator tutorial!
 
-This short tutorial should walk you through the process of creating a simple web application-- specifically a calculator that tells you how much you need to pay at a restaurant.
+This short tutorial should walk you through the process of creating a simple web application-- specifically a calculator that tells you how much you need to pay at a restaurant. Before you begin, you should have basic knowledge of HTML, CSS, Javascript, and jQuery.
 
 ------------
 
@@ -195,12 +195,12 @@ Like any big project, the best way to handle a big coding task is to break it do
 ### Detecting the Button Press
 This part's pretty important. We need to create code that fires off the moment our button is clicked. Thankfully, jQuery makes this immensely easy. Write the following inside the $(document).ready(function(){.....}) in main.js. This should be where it says "//let the magic begin!""
 ```javascript
-  $("#calculate-button").click(function(){ //<--#calculate-button is an id selector for the id we gave our button.
+$("#calculate-button").click(function(){ //<--#calculate-button is an id selector for the id we gave our button.
                                           // Be certain that the id you type is the exact same id you gave for the button in index.html.
 
-    // This prints a message in the console. Helpful for testing or debugging!
-	console.log('Button pressed!');
-  });
+  // This prints a message in the console. Helpful for testing or debugging!
+  console.log('Button pressed!');
+});
 ```
 
 Reload your page and try clicking your button. Nothing happens, right? WRONG! Not if you check your browser's super secret developer console. The way you enable the console varies from browser to browser. For Chrome, go to View -> Developer -> Javascript Console. With the console open, you should see the console.log message from the code appear every time you click the button. ___The console is your most useful tool for writing javascript!!!___
@@ -212,24 +212,91 @@ Great! Our button works!
 ### Reading the Text Fields
 We eventually want to do some calculations with the numbers the user enters, but to do that, we first need to grab those numbers from our code! jQuery to the rescue! We can create a jQuery object out of both text fields by using #id-selectors and then grab exactly what is currently typed into the text field (its "value") by calling the .val() function. Modify the code to look like this:
 ```javascript
-$(document).ready(function{
+$(document).ready(function(){
   $("#calculate-button").click(function(){ //<--#calculate-button is an id selector for the id we gave our button.
                                           // Be certain that the id you type is the exact same id you gave for the button in index.html.
-
     // This prints a message in the console. Helpful for testing or debugging!
-	console.log('Button pressed!');
-	const bill = $('#bill-field').val();
-	const percentTip = $('#percent-tip-field').val();
-	console.log('Bill: '+bill+', Percent Tip: '+percentTip);
+    console.log('Button pressed!');
+
+  	const bill = parseFloat($('#bill-field').val()); //parseFloat converts the String datatype that you normally get from calling .val() to a float (decimal number)
+  	const percentTip = parseFloat($('#percent-tip-field').val());
+  	console.log('Bill: '+bill+', Percent Tip: '+percentTip);
+
   });
 });
 ```
-And again, make sure the #id-selector you use matches the id's of the text fields.
+And again, make sure the #id-selector you use matches the id's of the text fields. You should be able to type anything into text fields and see them displayed in the console when you click the button:
+![screen](README_assets/10_read.png)
 
 ### Making the calculations
+Now we need to take these numbers and do some simple math. 
+Tip = Bill* Percent Tip / 100
+Total = Bill + Tip
+Simple right? Now we turn it into code.
 
+```javascript
+$(document).ready(function(){
+  $("#calculate-button").click(function(){
+
+    //Everything else so far
+    ..........
+
+  	// Simple Mathz!
+    const tip = bill * percentTip / 100;
+    const total = bill + tip;
+    console.log('Tip: '+tip+', Total: '+total);
+  });
+});
+```
+![screen](README_assets/11_maths.png)
+
+#### A Bug!
+What if you leave a text field blank or don't type a number?
+![screen](README_assets/12_rebel.png)
+I typed IMA REBEL for the percent tip field. But in the console, it doesn't say "IMA REBEL" for percent tip. It instead says NaN. NaN in this case doesn't refer to a tasty indian bread, but to the fact that IMA REBEL is *Not a Number*. The parseFloat method we used to convert the value of the text field to a number is used to dealing with strings that look like numbers, but it had no idea what to do when it saw IMA REBEL, so to complain it spat out this funky javascript value called NaN which is pretty much useless. It screws up all our later calculations too (1 + NaN = NaN, our tip and total also are printed out in the console as NaN). If we see a NaN, we should escape and tell the user to enter in something else. To help accomplish this, javascript has a useful method called isNaN() that lets us test for if something isn't a number.
+```javascript
+$(document).ready(function(){
+  $("#calculate-button").click(function(){ //<--#calculate-button is an id selector for the id we gave our button.
+                                          // Be certain that the id you type is the exact same id you gave for the button in index.html.
+    // This prints a message in the console. Helpful for testing or debugging!
+    console.log('Button pressed!');
+
+  	const bill = parseFloat($('#bill-field').val());
+  	const percentTip = parseFloat($('#percent-tip-field').val());
+
+    if(isNaN(bill) || isNaN(percentTip)) {
+      alert("Please enter in numbers for both fields.");
+      return; //Escape the function
+    }
+
+  	console.log('Bill: '+bill+', Percent Tip: '+percentTip);
+    const tip = bill * percentTip / 100;
+    const total = bill + tip;
+    console.log('Tip: '+tip+', Total: '+total);
+
+  });
+});
+```
+The alert function gets the job done but is very ugly and generally doesn't appear in final products. But for now, it serves our purpose. We can come back to it later to improve it.
+	
 ### Updating the Results Display
+Now we need to take all those calculations we did and display them on the actual webpage. You may have noticed those span tags in the results-display and wondered what there purpose was. Well here it is: those span tags allow us to change the value of just a section of a block of text. For instance, the tip result says **Tip: $___(span tag)_____** . By changing just the value of the span tag, we can make the Tip result show anything.
+Modify your code to contain two additional lines:
+```javascript
+$(document).ready(function(){
+  $("#calculate-button").click(function(){
+
+  	// (Everything we did so far)
+  	......
+
+    $('#tip-result').html(tip); //Remember, the id selectors should match the id's in the HTML file!
+    $('#total-result').html(total);
+  });
+});
+```
+Refresh your page, you should see the results display when you click the button.
 
 ### Finishing Touches
+
 
 
