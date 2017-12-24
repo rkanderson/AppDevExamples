@@ -280,7 +280,11 @@ $(document).ready(function(){
 The alert function gets the job done but is very ugly and generally doesn't appear in final products. But for now, it serves our purpose. We can come back to it later to improve it.
 	
 ### Updating the Results Display
-Now we need to take all those calculations we did and display them on the actual webpage. You may have noticed those span tags in the results-display and wondered what there purpose was. Well here it is: those span tags allow us to change the value of just a section of a block of text. For instance, the tip result says **Tip: $___(span tag)_____** . By changing just the value of the span tag, we can make the Tip result show anything.
+Now we need to take all those calculations we did and display them on the actual webpage. You may have noticed those span tags in the results-display and wondered what there purpose was. Well here it is: those span tags allow us to change the value of just a section of a block of text. For instance, the tip result says
+```html
+Tip: $<span id="tip-result">somevalueinhere</span>
+```
+By changing just the value of the span tag, we can make the Tip result show anything.
 Modify your code to contain two additional lines:
 ```javascript
 $(document).ready(function(){
