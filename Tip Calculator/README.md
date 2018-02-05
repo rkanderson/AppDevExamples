@@ -302,9 +302,10 @@ Refresh your page, you should see the results display when you click the button.
 
 ### Finishing Touches
 We now have what we would call a *Minimal Viable Product* or **MVP**. That means the app can do its most basic functionality, but it's *really* basic and not too pretty either. We could spend a lot of time writing CSS to perfect the aesthetic, but something we could do very quickly is prevent the results display from showing before the calculate button is clicked.
-We would first make the results display appear hidden when the page initially loads by modifying its tag's style attribute, which let's us type in some css. Setting display to none hides any element.
+
+We would first make the results display appear hidden when the page initially loads by modifying its tag's style attribute, which let's us type in some css. *Setting display to none hides any element.*
 ```html
-<div id="results-display" class="row py-3" style="display: none;">
+<div id="results-display" class="row" style="display: none;">
  	...
 </div>
 ```
@@ -323,5 +324,8 @@ $(document).ready(function(){
   });
 });
 ```
+Yay that's done!
+
+We can do more! The positioning of ui elements might seem a little awkward right now. This can be fixed by modifying margins and adding spacers. 
 
 
